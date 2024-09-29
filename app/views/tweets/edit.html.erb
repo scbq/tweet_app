@@ -1,12 +1,19 @@
-<% content_for :title, "Editing tweet" %>
+<% content_for :title, "Editar Tweet" %>
 
-<h1>Editing tweet</h1>
+<h1 class="display-4 text-center mb-4">Editar Tweet</h1>
 
+<!-- Formulario de edición -->
 <%= render "form", tweet: @tweet %>
 
-<br>
+<!-- Separación visual entre el formulario y los enlaces -->
+<div class="mt-4 text-center">
+  <!-- Enlace para ver el tweet -->
+  <%= link_to @tweet, class: 'btn btn-info me-2' do %>
+    <i class="fas fa-eye"></i> Ver Tweet
+  <% end %>
 
-<div>
-  <%= link_to "Show this tweet", @tweet %> |
-  <%= link_to "Back to tweets", tweets_path %>
+  <!-- Enlace para volver al listado de tweets -->
+  <%= link_to tweets_path, class: 'btn btn-secondary' do %>
+    <i class="fas fa-arrow-left"></i> Volver a Tweets
+  <% end %>
 </div>

@@ -1,8 +1,9 @@
-<%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+<%= form_with(model: tweet, local: true, class: 'needs-validation') do |form| %>
 
+  <!-- Mostrar errores si hay -->
+  <% if tweet.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(tweet.errors.count, "error") %> impiden que este tweet se guarde:</h4>
       <ul>
         <% tweet.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +12,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <!-- Campo Descripción -->
+  <div class="mb-3">
+    <%= form.label :description, "Descripción", class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control', placeholder: 'Escribe tu tweet aquí...', rows: 4 %>
   </div>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+  <!-- Campo Nombre de Usuario -->
+  <div class="mb-3">
+    <%= form.label :username, "Nombre de Usuario", class: 'form-label' %>
+    <%= form.text_field :username, class: 'form-control', placeholder: 'Ingresa tu nombre de usuario' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <!-- Botón Enviar -->
+  <div class="d-grid gap-2">
+    <%= form.submit 'Guardar Tweet', class: 'btn btn-primary' %>
   </div>
+
 <% end %>

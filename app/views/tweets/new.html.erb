@@ -1,11 +1,14 @@
-<% content_for :title, "New tweet" %>
+<% content_for :title, "Nuevo Tweet" %>
 
-<h1>New tweet</h1>
+<!-- Título centrado -->
+<h1 class="display-4 text-center mb-4">Nuevo Tweet</h1>
 
+<!-- Formulario de nuevo tweet -->
 <%= render "form", tweet: @tweet %>
 
-<br>
-
-<div>
-  <%= link_to "Back to tweets", tweets_path %>
+<!-- Enlace para volver al listado de tweets -->
+<div class="text-center mt-4">
+  <%= link_to tweets_path, class: 'btn btn-secondary d-inline-flex align-items-center' do %>
+    <i class="fas fa-arrow-left me-2"></i> Volver a Tweets
+  <% end %>
 </div>
