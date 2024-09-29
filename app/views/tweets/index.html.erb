@@ -17,17 +17,19 @@
 <% end %>
 
 <!-- Listado de tweets -->
-<div id="tweets" class="row">
+<div id="tweets" class="row g-3"> <!-- Añadir la clase g-3 para un gap entre las columnas -->
   <% @tweets.each do |tweet| %>
     <div class="col-md-4">
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body">
+      <div class="card mb-3 shadow-sm h-100"> <!-- mb-3 asegura que las tarjetas tengan margen inferior -->
+        <div class="card-body d-flex flex-column">
           <%= render tweet %>
-          <p>
-            <%= link_to tweet, class: "btn btn-info" do %>
-              <i class="fas fa-eye"></i> Ver Tweet
+
+          <!-- Botón para ver el tweet -->
+          <div class="mt-auto"> <!-- mt-auto para alinear el botón al final de la tarjeta -->
+            <%= link_to tweet, class: "btn btn-info d-inline-flex align-items-center" do %>
+              <i class="fas fa-eye me-2"></i> Ver Tweet
             <% end %>
-          </p>
+          </div>
         </div>
       </div>
     </div>

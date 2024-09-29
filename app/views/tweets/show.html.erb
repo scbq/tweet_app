@@ -8,18 +8,20 @@
 
 <!-- Acciones para editar, volver y eliminar el tweet -->
 <div class="text-center mt-4">
-  <!-- Botón para editar el tweet -->
-  <%= link_to edit_tweet_path(@tweet), class: 'btn btn-warning me-2 d-inline-flex align-items-center' do %>
-    <i class="fas fa-edit me-2"></i> Editar este Tweet
-  <% end %>
+  <div class="d-flex justify-content-center gap-3"> <!-- Añadir un contenedor flex con separación -->
+    <!-- Botón para editar el tweet -->
+    <%= link_to edit_tweet_path(@tweet), class: 'btn btn-warning d-inline-flex align-items-center mx-2' do %>
+      <i class="fas fa-edit me-2"></i> Editar este Tweet
+    <% end %>
 
-  <!-- Botón para volver a la lista de tweets -->
-  <%= link_to tweets_path, class: 'btn btn-secondary me-2 d-inline-flex align-items-center' do %>
-    <i class="fas fa-arrow-left me-2"></i> Volver a Tweets
-  <% end %>
+    <!-- Botón para volver a la lista de tweets -->
+    <%= link_to tweets_path, class: 'btn btn-secondary d-inline-flex align-items-center mx-2' do %>
+      <i class="fas fa-arrow-left me-2"></i> Volver a Tweets
+    <% end %>
 
-  <!-- Botón para eliminar el tweet -->
-  <%= button_to @tweet, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger d-inline-flex align-items-center' do %>
-    <i class="fas fa-trash me-2"></i> Eliminar este Tweet
-  <% end %>
+    <!-- Botón para eliminar el tweet -->
+    <%= button_to @tweet, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger d-inline-flex align-items-center mx-2' do %>
+      <i class="fas fa-trash me-2"></i> Eliminar este Tweet
+    <% end %>
+  </div>
 </div>
